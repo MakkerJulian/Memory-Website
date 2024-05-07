@@ -36,6 +36,29 @@
     align-items: center;
 }
 
+@media (min-width: 300px) {
+    .memory{
+        grid-template-columns: repeat(6, 1fr);
+    } 
+    .leaderSettings{
+        flex-direction: column;
+    }
+}
+@media (min-width: 700px) {
+    .memory{
+        grid-template-columns: repeat(12, 1fr);
+    }
+    .leaderSettings{
+        flex-direction: row;
+    }
+}
+
+.leaderSettings{
+    text-align: center;
+    display: flex;
+    align-items: center;
+}
+
 .card:active{
     filter: brightness(1.1);
 }
@@ -54,10 +77,10 @@
 
 .memory{
     display: grid;
-    grid-template-columns: repeat(6, 1fr);
     grid-gap: 10px;
     width: 90vw;
     height: 35vh;
+    margin: 0 auto;
     margin-bottom: 2.5vh;
 }
 
