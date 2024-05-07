@@ -14,30 +14,33 @@
         <p class="title">
             Memory
         </p>
+
         <p class="subtitle">
             Klik op de kaarten om ze om te draaien
         </p>
-        <p class="data">
-            Time Spent: 0 seconds
-            Time Left: 60 seconds
-            Score: 0
+
+        <div class="variables">
+            Time Spent: 0 seconds <br>
+            Time Left: 60 seconds <br>
+            Score: 0 <br>
             Cards will be open for 3 seconds.
-        </p>
+        </div>
+
         <div class="memory">
             <!-- loop from 0 to 36 with adding these cards -->
             <script>
                 for (let i = 0; i < 12; i++) {
-                    document.write('<button class="card close">Kaart</button>');
+                    document.write('<button class="card close">-</button>');
                 }
             </script>
             <script>
                 for (let i = 0; i < 12; i++) {
-                    document.write('<button class="card open">Kaart</button>');
+                    document.write('<button class="card open">-</button>');
                 }
             </script>
             <script>
                 for (let i = 0; i < 12; i++) {
-                    document.write('<button class="card match">Kaart</button>');
+                    document.write('<button class="card match">-</button>');
                 }
             </script>
         </div>
