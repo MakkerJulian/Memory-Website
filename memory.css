@@ -1,35 +1,40 @@
-.title{
+.title {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     font-size: xx-large;
+    text-transform: uppercase;
+    letter-spacing: 2px;
+    font-weight: bold;
+    color: #ff00ff;
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
-:root{
+:root {
     --colorOpen: #21a5bc;
     --colorClosed: #bc5721;
     --colorMatch: #33bc21;
 }
 
-.subtitle{
+.subtitle {
     font-family: 'Roboto', sans-serif;
     margin: 0;
     padding: 0;
     font-size: large;
 }
 
-.variables{
+.variables {
     text-align: center;
 }
 
-.container{
+.container {
     display: flex;
     justify-content: center;
     align-items: center;
     flex-direction: column;
 }
 
-.card{
+.card {
     border-radius: 5%;
     display: flex;
     justify-content: center;
@@ -37,45 +42,48 @@
 }
 
 @media (min-width: 300px) {
-    .memory{
+    .memory {
         grid-template-columns: repeat(6, 1fr);
-    } 
-    .leaderSettings{
+    }
+
+    .leaderSettings {
         flex-direction: column;
     }
 }
-@media (min-width: 700px) {
-    .memory{
+
+@media (min-width: 800px) {
+    .memory {
         grid-template-columns: repeat(12, 1fr);
     }
-    .leaderSettings{
+
+    .leaderSettings {
         flex-direction: row;
     }
 }
 
-.leaderSettings{
+.leaderSettings {
     text-align: center;
     display: flex;
     align-items: center;
 }
 
-.card:active{
+.card:active {
     filter: brightness(1.1);
 }
 
-.open{
+.open {
     background-color: var(--colorOpen);
 }
 
-.close{
+.close {
     background-color: var(--colorClosed);
 }
 
-.match{
+.match {
     background-color: var(--colorMatch);
 }
 
-.memory{
+.memory {
     display: grid;
     grid-gap: 10px;
     width: 90vw;
@@ -84,13 +92,13 @@
     margin-bottom: 2.5vh;
 }
 
-.colorSelects{
+.colorSelects {
     display: flex;
     flex-direction: row;
     margin-bottom: 2.5vh;
 }
 
-.colorSelect{
+.colorSelect {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -98,17 +106,17 @@
     margin: 1vw;
 }
 
-.dropdown{
+.dropdown {
     display: flex;
     flex-direction: column;
     margin: 1vw;
 }
 
-.dropdowns{
+.dropdowns {
     display: flex;
     flex-direction: row;
 }
 
-body{
+body {
     background-color: aqua;
 }
