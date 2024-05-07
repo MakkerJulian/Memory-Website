@@ -5,6 +5,12 @@
     font-size: xx-large;
 }
 
+:root{
+    --colorOpen: #21a5bc;
+    --colorClosed: #bc5721;
+    --colorMatch: #33bc21;
+}
+
 .subtitle{
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -37,15 +43,15 @@
 }
 
 .open{
-    background-color: #21a5bc;
+    background-color: var(--colorOpen);
 }
 
 .close{
-    background-color: #bc5721;
+    background-color: var(--colorClosed);
 }
 
 .match{
-    background-color: #33bc21;
+    background-color: var(--colorMatch);
 }
 
 .memory{
