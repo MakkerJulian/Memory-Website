@@ -27,10 +27,13 @@
 
 .card{
     border-radius: 5%;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
     display: flex;
     justify-content: center;
     align-items: center;
+}
+
+.card:active{
+    filter: brightness(1.1);
 }
 
 .open{
