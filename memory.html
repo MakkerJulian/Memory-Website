@@ -9,9 +9,96 @@
 </head>
 
 <body>
-    <p class="hoi">
-        Hoi
-    </p>
+    <div class="container">
+
+        <p class="title">
+            Memory
+        </p>
+        <p class="subtitle">
+            Klik op de kaarten om ze om te draaien
+        </p>
+        <p class="data">
+            Time Spent: 0 seconds
+            Time Left: 60 seconds
+            Score: 0
+            Cards will be open for 3 seconds.
+        </p>
+        <div class="memory">
+            <!-- loop from 0 to 36 with adding these cards -->
+            <script>
+                for (let i = 0; i < 12; i++) {
+                    document.write('<div class="card close">Kaart</div>');
+                }
+            </script>
+            <script>
+                for (let i = 0; i < 12; i++) {
+                    document.write('<div class="card open">Kaart</div>');
+                }
+            </script>
+            <script>
+                for (let i = 0; i < 12; i++) {
+                    document.write('<div class="card match">Kaart</div>');
+                }
+            </script>
+        </div>
+
+        <div class="leaderboard">
+            Top 5:
+            <ol>
+                <li>Player 1: 100</li>
+                <li>Player 2: 90</li>
+                <li>Player 3: 80</li>
+                <li>Player 4: 70</li>
+                <li>Player 5: 60</li>
+        </div>
+
+        <div class="dropdowns">
+            <!-- Dropdowns for image and the size of the board -->
+            <div class="dropdown">
+                <label for="image">Image</label>
+                <select title="Image">
+                    <option value="1">Image 1</option>
+                    <option value="2">Image 2</option>
+                    <option value="3">Image 3</option>
+                    <option value="4">Image 4</option>
+                </select>
+            </div>
+
+            <div class="dropdown">
+                <label for="Size">Size</label>
+                <select title="Size">
+                    <option value="1">4x3</option>
+                    <option value="2">4x4</option>
+                    <option value="3">4x5</option>
+                    <option value="4">4x6</option>
+                </select>
+            </div>
+        </div>
+
+        <div class="colorSelects">
+
+            <div class="colorSelect">
+                <label for="color">Open Card Color</label>
+                <input type="color" id="color" name="colorCard" value="#21a5bc">
+            </div>
+
+            <div class="colorSelect">
+                <label for="color">Closed Card Color</label>
+                <input type="color" id="color" name="colorClosed" value="#bc5721">
+            </div>
+
+            <div class="colorSelect">
+                <label for="color">Matched Card Color</label>
+                <input type="color" id="color" name="colorBackground" value="#33bc21">
+            </div>
+
+        </div>
+
+        <div class="buttons">
+            <button class="start">Start</button>
+            <button class="reset">Reset</button>
+        </div>
+    </div>
 </body>
 
 </html>

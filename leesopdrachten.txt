@@ -1,0 +1,14 @@
+Lees het artikel over webtoegankelijkheid (of hier als bestand) en beantwoord de volgende vragen in een korte alinea per vraag.
+
+a. Probeer je voor te stellen dat je niet (meer) kunt zien, maar wel je favoriete site wilt bezoeken. 
+Welke van de in het artikel genoemde frustratie over (on)toegankelijkheid lijkt jou het meest belemmerend? En waarom?
+
+b. Kom je als ziend persoon ook wel eens dingen tegen die jou belemmeren in het correct gebruiken van een website? 
+Beschrijf kort wat je tegenkomt en hoe jij dit beter zou willen doen.
+
+Lees het artikel over responsive web design (of hier als bestand) en beantwoord de volgende vraag in een korte alinea.
+Er zijn twee benaderingen als het gaat om responsive web design: mobile-first of desktop-first. 
+Niet iedereen is het eens over welke de voorkeur zou moeten hebben, alhoewel de één wellicht populairder is dan de ander. 
+Dit artikel betoogt een duidelijke voorkeur. 
+Ben jij het met de schrijver van het artikel eens? 
+Leg uit waarom je het hier wel of niet mee eens bent met behulp van een argument dat in het artikel wordt genoemd.
