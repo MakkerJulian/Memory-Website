@@ -6,6 +6,7 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Memory</title>
     <link rel="stylesheet" href="memory.css">
+    <script src="memory.js"></script>
 </head>
 
 <body>
@@ -30,12 +31,12 @@
             <!-- loop from 0 to 36 with adding these cards -->
             <script>
                 for (let i = 0; i < 12; i++) {
-                    document.write('<button class="card close">-</button>');
+                    document.write('<button class="card open">-</button>');
                 }
             </script>
             <script>
                 for (let i = 0; i < 12; i++) {
-                    document.write('<button class="card open">-</button>');
+                    document.write('<button class="card close">-</button>');
                 }
             </script>
             <script>
@@ -83,17 +84,17 @@
     
                 <div class="colorSelect">
                     <label for="color">Open Card Color</label>
-                    <input type="color" id="color" name="colorCard" value="#21a5bc">
+                    <input type="color" id="openInput" name="colorCard" value="#21a5bc" onchange="changeOpen()">
                 </div>
     
                 <div class="colorSelect">
                     <label for="color">Closed Card Color</label>
-                    <input type="color" id="color" name="colorClosed" value="#bc5721">
+                    <input type="color" id="closedInput" name="colorClosed" value="#bc5721" onchange="changeClose()">
                 </div>
     
                 <div class="colorSelect">
                     <label for="color">Matched Card Color</label>
-                    <input type="color" id="color" name="colorBackground" value="#33bc21">
+                    <input type="color" id="matchedInput" name="colorBackground" value="#33bc21" onchange="changeMatch()">
                 </div>
     
             </div>
