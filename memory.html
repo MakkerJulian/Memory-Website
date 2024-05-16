@@ -23,9 +23,10 @@
         <div class="variables">
             Time Spent: 0 seconds <br>
             Time Left: 60 seconds <br>
-            Score: 0 <br>
-            Cards will be open for 0.5 seconds.
+            <div id="score">Score: 0 </div>
         </div>
+
+        <br>
 
         <div class="memory" id= "cardContainer">
             <script>
@@ -59,11 +60,12 @@
     
                 <div class="dropdown">
                     <label for="Size">Size</label>
-                    <select id="sizeSelect" title="Size" onchange="generateCards(this.value)">
+                    <select id="sizeSelect" title="Size" onchange="changeSize(this.value)">
                         <option selected value="18">36</option>
                         <option value="15">30</option>
                         <option value="12">24</option>
                         <option value="9">18</option>
+                        <option value="2">4</option>
                     </select>
                 </div>
             </div>
@@ -88,8 +90,7 @@
             </div>
         </div>
         <div class="buttons">
-            <button class="start">Start</button>
-            <button class="reset">Reset</button>
+            <button class="reset" onclick="generateCards()">Reset</button>
         </div>
     </div>
 </body>
