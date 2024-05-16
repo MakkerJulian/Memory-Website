@@ -24,26 +24,14 @@
             Time Spent: 0 seconds <br>
             Time Left: 60 seconds <br>
             Score: 0 <br>
-            Cards will be open for 3 seconds.
+            Cards will be open for 0.5 seconds.
         </div>
 
-        <div class="memory">
-            <!-- loop from 0 to 36 with adding these cards -->
+        <div class="memory" id= "cardContainer">
             <script>
-                for (let i = 0; i < 12; i++) {
-                    document.write('<button class="card open">-</button>');
-                }
+                generateCards();
             </script>
-            <script>
-                for (let i = 0; i < 12; i++) {
-                    document.write('<button class="card close">-</button>');
-                }
-            </script>
-            <script>
-                for (let i = 0; i < 12; i++) {
-                    document.write('<button class="card match">-</button>');
-                }
-            </script>
+            
         </div>
 
         <div class = "leaderSettings">
@@ -71,11 +59,11 @@
     
                 <div class="dropdown">
                     <label for="Size">Size</label>
-                    <select title="Size">
-                        <option value="1">4x3</option>
-                        <option value="2">4x4</option>
-                        <option value="3">4x5</option>
-                        <option value="4">4x6</option>
+                    <select id="sizeSelect" title="Size" onchange="generateCards(this.value)">
+                        <option selected value="18">36</option>
+                        <option value="15">30</option>
+                        <option value="12">24</option>
+                        <option value="9">18</option>
                     </select>
                 </div>
             </div>
