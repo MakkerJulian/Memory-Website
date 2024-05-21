@@ -86,9 +86,27 @@
 
 /* make a green filter */
 .match {
-    filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
-    background-color: var(--colorMatch);
+    position: relative;
 }
+
+.match::before {
+    content: "";
+    position: absolute;
+    top: 0;
+    right: 0;
+    bottom: 0;
+    left: 0;
+    background-color: var(--colorMatch);
+    opacity: 0.2; /* Pas de opaciteit aan naar wens */
+    z-index: 1;
+}
+
+.match img {
+    /* filter: grayscale(100%) sepia(100%) hue-rotate(90deg); */
+    z-index: 0;
+    position: relative;
+}
+
 
 .memory {
     display: grid;
