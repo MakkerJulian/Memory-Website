@@ -23,7 +23,7 @@ function changeOpen() {
 	for (var i = 0; i < openCards.length; i++) {
 		openCards[i].style.backgroundColor = openInput.value;
 	}
-	document.documentElement.style.setProperty('--colorOpen', openInput)
+	document.documentElement.style.setProperty('--colorOpen', openInput.value)
 }
 
 function changeMatch() {
@@ -33,7 +33,7 @@ function changeMatch() {
 	for (var i = 0; i < matchCards.length; i++) {
 		matchCards[i].style.backgroundColor = matchInput.value;
 	}
-	document.documentElement.style.setProperty('--colorMatch', matchInput);
+	document.documentElement.style.setProperty('--colorMatch', matchInput.value);
 }
 
 function changeClose() {
@@ -43,7 +43,7 @@ function changeClose() {
 	for (var i = 0; i < closeCards.length; i++) {
 		closeCards[i].style.backgroundColor = closeInput.value;
 	}
-	document.documentElement.style.setProperty('--colorClose', closeInput)
+	document.documentElement.style.setProperty('--colorClose', closeInput.value)
 }
 
 function reset() {
