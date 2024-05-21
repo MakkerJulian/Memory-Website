@@ -3,6 +3,17 @@ var savedCard1 = null;
 var savedCard2 = null;
 var matched = 0;
 var globalSize = 18;
+var time = 0;
+
+
+function timer() {
+	//start counting time when the match starts
+	time++;
+	document.getElementById('timer').innerHTML = "Time spent: " + time + " seconds";
+}
+
+var timerInterval = setInterval(timer, 1000);
+
 
 function changeOpen() {
 	var openInput = document.getElementById("openInput");
@@ -33,6 +44,7 @@ function changeClose() {
 
 function reset() {
 	matched = 0;
+	time=0;
 	savedCard = null;
 	savedCard1 = null;
 	savedCard2 = null;
@@ -44,8 +56,8 @@ function changeSize(size) {
 	generateCards();
 }
 
-function changeScore(score){
-	document.getElementById('score').innerHTML= "Score: "+ score;
+function changeScore(score) {
+	document.getElementById('score').innerHTML = "Score: " + score;
 }
 
 function generateLetters() {
@@ -112,6 +124,6 @@ function changeToOpen(cardId) {
 }
 
 function congratulateAndReset() {
-	alert("Congratulations! You have won!");
+	alert("Congratulations! You have won! in " + time + " seconds");
 	generateCards(globalSize);
 }

@@ -21,21 +21,23 @@
         </p>
 
         <div class="variables">
-            Time Spent: 0 seconds <br>
+            <div id='timer'>
+                Time Spent: 0 seconds <br>
+            </div>
             Time Left: 60 seconds <br>
             <div id="score">Score: 0 </div>
         </div>
 
         <br>
 
-        <div class="memory" id= "cardContainer">
+        <div class="memory" id="cardContainer">
             <script>
                 generateCards();
             </script>
-            
+
         </div>
 
-        <div class = "leaderSettings">
+        <div class="leaderSettings">
             <div class="leaderboard">
                 Top 5:
                 <ol>
@@ -45,7 +47,7 @@
                     <li>Player 4: 70</li>
                     <li>Player 5: 60</li>
             </div>
-    
+
             <div class="dropdowns">
                 <!-- Dropdowns for image and the size of the board -->
                 <div class="dropdown">
@@ -57,7 +59,7 @@
                         <option value="4">Image 4</option>
                     </select>
                 </div>
-    
+
                 <div class="dropdown">
                     <label for="Size">Size</label>
                     <select id="sizeSelect" title="Size" onchange="changeSize(this.value)">
@@ -69,24 +71,25 @@
                     </select>
                 </div>
             </div>
-    
+
             <div class="colorSelects">
-    
+
                 <div class="colorSelect">
                     <label for="color">Open Card Color</label>
                     <input type="color" id="openInput" name="colorCard" value="#21a5bc" onchange="changeOpen()">
                 </div>
-    
+
                 <div class="colorSelect">
                     <label for="color">Closed Card Color</label>
                     <input type="color" id="closedInput" name="colorClosed" value="#bc5721" onchange="changeClose()">
                 </div>
-    
+
                 <div class="colorSelect">
                     <label for="color">Matched Card Color</label>
-                    <input type="color" id="matchedInput" name="colorBackground" value="#33bc21" onchange="changeMatch()">
+                    <input type="color" id="matchedInput" name="colorBackground" value="#33bc21"
+                        onchange="changeMatch()">
                 </div>
-    
+
             </div>
         </div>
         <div class="buttons">
