@@ -5,6 +5,8 @@ var matched = 0;
 var globalSize = 18;
 var time = 0;
 
+var getCardBackground= function(){}
+
 
 function timer() {
 	//start counting time when the match starts
@@ -44,7 +46,7 @@ function changeClose() {
 
 function reset() {
 	matched = 0;
-	time=0;
+	time = 0;
 	savedCard = null;
 	savedCard1 = null;
 	savedCard2 = null;
@@ -71,18 +73,35 @@ function generateLetters() {
 	return letters;
 }
 
-function generateCards() {
+function generateCats() {
+	var cats = [];
+	return fetch('https://cataas.com/api/cats?limit=' + globalSize)
+		.then(response => response.json())
+		.then(jsonCats => {
+			jsonCats.forEach(cat => {
+				cats.push(cat._id);
+				cats.push(cat._id);
+			});
+			cats.sort(() => Math.random() - 0.5);
+			return cats;
+		}
+	);
+}
+
+async function generateCards() {
 	reset();
 
-	var letters = generateLetters();
 	var cardContainer = document.getElementById("cardContainer");
+
+	var cats= await generateCats();
 	//empty the card container
 	cardContainer.innerHTML = "";
 	for (let i = 1; i < (globalSize * 2) + 1; i++) {
 		var card = document.createElement("button");
 		card.className = "card close";
+		card.innerHTML
 		card.id = "card" + i;
-		card.value = letters[i - 1];
+		card.value = cats[i - 1];
 		card.onclick = () => changeToOpen(i);
 		cardContainer.appendChild(card);
 	}
@@ -94,7 +113,7 @@ function changeToOpen(cardId) {
 	if (card.className === "card match" || savedCard === cardId) return;
 
 	card.className = "card open";
-	card.innerHTML = card.value;
+	card.style.backgroundImage = "url('https://cataas.com/cat/" + card.value + "')";
 
 	if (!savedCard) {
 		var card1 = document.getElementById("card" + savedCard1);
@@ -102,8 +121,8 @@ function changeToOpen(cardId) {
 		if (card1 && card2 && card1.className != "card match") {
 			card1.className = "card close";
 			card2.className = "card close";
-			card1.innerHTML = "";
-			card2.innerHTML = "";
+			card1.style.backgroundImage = "none";
+			card2.style.backgroundImage = "none";
 		}
 		savedCard = cardId;
 		savedCard1 = cardId;

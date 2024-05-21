@@ -39,6 +39,10 @@
     display: flex;
     justify-content: center;
     align-items: center;
+    overflow: hidden;
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
 }
 
 @media (min-width: 300px) {
@@ -75,11 +79,14 @@
     background-color: var(--colorOpen);
 }
 
+
 .close {
     background-color: var(--colorClosed);
 }
 
+/* make a green filter */
 .match {
+    filter: grayscale(100%) sepia(100%) hue-rotate(90deg);
     background-color: var(--colorMatch);
 }
 
