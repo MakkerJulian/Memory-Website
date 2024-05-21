@@ -5,16 +5,15 @@ var matched = 0;
 var globalSize = 18;
 var time = 0;
 
-var getCardBackground= function(){}
-
+var getCardBackground = generateRandomImages;
+var getBgImageUrl = getImageBgUrl;
 
 function timer() {
-	//start counting time when the match starts
 	time++;
 	document.getElementById('timer').innerHTML = "Time spent: " + time + " seconds";
 }
 
-var timerInterval = setInterval(timer, 1000);
+var timeInterval = setInterval(timer, 1000);
 
 
 function changeOpen() {
@@ -65,18 +64,43 @@ function changeScore(score) {
 	document.getElementById('score').innerHTML = "Score: " + score;
 }
 
-function generateLetters() {
-	//generate a random list of letters
-	var letters = [];
-	for (let i = 0; i < globalSize; i++) {
-		letters.push(String.fromCharCode(65 + i));
-		letters.push(String.fromCharCode(65 + i));
-	}
-	letters.sort(() => Math.random() - 0.5);
-	return letters;
+
+function getImageBgUrl(cardId) {
+	return "url(https://picsum.photos/id/" + cardId + "/200)";
 }
 
-function generateCats() {
+function generateRandomImages() {
+	var images = [];
+	return fetch('https://picsum.photos/v2/list?limit=' + globalSize)
+		.then(response => response.json())
+		.then(jsonImages => {
+			jsonImages.forEach(image => {
+				images.push(image.id);
+				images.push(image.id);
+			});
+			images.sort(() => Math.random() - 0.5);
+			return images;
+		});
+}
+async function switchBackground(bg) {
+	switch (bg) {
+		case "images":
+			getCardBackground = generateRandomImages;
+			getBgImageUrl = getImageBgUrl;
+			break;
+		case "cats":
+			getCardBackground = generateCats;
+			getBgImageUrl = getCatBgUrl;
+			break;
+		default:
+			getCardBackground = generateRandomImages;
+			getBgImageUrl = getImageBgUrl;
+			break;
+	}
+	generateCards();
+}
+
+async function generateCats() {
 	var cats = [];
 	return fetch('https://cataas.com/api/cats?limit=' + globalSize)
 		.then(response => response.json())
@@ -88,7 +112,11 @@ function generateCats() {
 			cats.sort(() => Math.random() - 0.5);
 			return cats;
 		}
-	);
+		);
+}
+
+function getCatBgUrl(cardId) {
+	return "url(https://cataas.com/cat/" + cardId + ")";
 }
 
 async function generateCards() {
@@ -96,7 +124,7 @@ async function generateCards() {
 
 	var cardContainer = document.getElementById("cardContainer");
 
-	var cats= await generateCats();
+	var backgrounds = await getCardBackground();
 	//empty the card container
 	cardContainer.innerHTML = "";
 	for (let i = 1; i < (globalSize * 2) + 1; i++) {
@@ -104,7 +132,7 @@ async function generateCards() {
 		card.className = "card close";
 		card.innerHTML
 		card.id = "card" + i;
-		card.value = cats[i - 1];
+		card.value = backgrounds[i - 1];
 		card.onclick = () => changeToOpen(i);
 		cardContainer.appendChild(card);
 	}
@@ -116,7 +144,7 @@ function changeToOpen(cardId) {
 	if (card.className === "card match" || savedCard === cardId) return;
 
 	card.className = "card open";
-	card.style.backgroundImage = "url('https://cataas.com/cat/" + card.value + "')";
+	card.style.backgroundImage = getBgImageUrl(card.value);
 
 	if (!savedCard) {
 		var card1 = document.getElementById("card" + savedCard1);

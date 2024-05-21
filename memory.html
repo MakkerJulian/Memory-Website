@@ -34,7 +34,6 @@
             <script>
                 generateCards();
             </script>
-
         </div>
 
         <div class="leaderSettings">
@@ -52,9 +51,9 @@
                 <!-- Dropdowns for image and the size of the board -->
                 <div class="dropdown">
                     <label for="image">Image</label>
-                    <select title="Image">
-                        <option value="1">Image 1</option>
-                        <option value="2">Image 2</option>
+                    <select title="Image" onchange="switchBackground(this.value)">
+                        <option value="cats">Cats</option>
+                        <option selected value="images">Images</option>
                         <option value="3">Image 3</option>
                         <option value="4">Image 4</option>
                     </select>
