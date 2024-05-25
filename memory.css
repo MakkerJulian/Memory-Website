@@ -1,3 +1,9 @@
+:root {
+    --colorOpen: #21a5bc;
+    --colorClosed: #bc5721;
+    --colorMatch: #33bc21;
+}
+
 .title {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -8,12 +14,6 @@
     font-weight: bold;
     color: #ff00ff;
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-:root {
-    --colorOpen: #21a5bc;
-    --colorClosed: #bc5721;
-    --colorMatch: #33bc21;
 }
 
 .subtitle {
