@@ -47,46 +47,49 @@
                     <li>Player 5: 60</li>
             </div>
 
-            <div class="dropdowns">
-                <!-- Dropdowns for image and the size of the board -->
-                <div class="dropdown">
-                    <label for="image">Image</label>
-                    <select title="Image" onchange="switchBackground(this.value)">
-                        <option value="cats">Cats</option>
-                        <option selected value="images">Images</option>
-                    </select>
+            <div class="settings">
+                <div class="dropdowns">
+                    <!-- Dropdowns for image and the size of the board -->
+                    <div class="dropdown">
+                        <label for="image">Image</label>
+                        <select title="Image" onchange="switchBackground(this.value)">
+                            <option value="cats">Cats</option>
+                            <option selected value="images">Images</option>
+                        </select>
+                    </div>
+
+                    <div class="dropdown">
+                        <label for="Size">Size</label>
+                        <select id="sizeSelect" title="Size" onchange="changeSize(this.value)">
+                            <option selected value="18">36</option>
+                            <option value="15">30</option>
+                            <option value="12">24</option>
+                            <option value="9">18</option>
+                            <option value="2">4</option>
+                        </select>
+                    </div>
                 </div>
 
-                <div class="dropdown">
-                    <label for="Size">Size</label>
-                    <select id="sizeSelect" title="Size" onchange="changeSize(this.value)">
-                        <option selected value="18">36</option>
-                        <option value="15">30</option>
-                        <option value="12">24</option>
-                        <option value="9">18</option>
-                        <option value="2">4</option>
-                    </select>
+                <div class="colorSelects">
+
+                    <div class="colorSelect">
+                        <label for="color">Open Color</label>
+                        <input type="color" id="openInput" name="colorCard" value="#21a5bc" onchange="changeOpen()">
+                    </div>
+
+                    <div class="colorSelect">
+                        <label for="color">Closed Color</label>
+                        <input type="color" id="closedInput" name="colorClosed" value="#bc5721"
+                            onchange="changeClose()">
+                    </div>
+
+                    <div class="colorSelect">
+                        <label for="color">Matched Color</label>
+                        <input type="color" id="matchedInput" name="colorBackground" value="#33bc21"
+                            onchange="changeMatch()">
+                    </div>
+
                 </div>
-            </div>
-
-            <div class="colorSelects">
-
-                <div class="colorSelect">
-                    <label for="color">Open Card Color</label>
-                    <input type="color" id="openInput" name="colorCard" value="#21a5bc" onchange="changeOpen()">
-                </div>
-
-                <div class="colorSelect">
-                    <label for="color">Closed Card Color</label>
-                    <input type="color" id="closedInput" name="colorClosed" value="#bc5721" onchange="changeClose()">
-                </div>
-
-                <div class="colorSelect">
-                    <label for="color">Matched Card Color</label>
-                    <input type="color" id="matchedInput" name="colorBackground" value="#33bc21"
-                        onchange="changeMatch()">
-                </div>
-
             </div>
         </div>
         <div class="buttons">
