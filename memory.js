@@ -10,7 +10,7 @@ var getBgImageUrl = getImageBgUrl;
 
 function timer() {
 	time++;
-	document.getElementById('timer').innerHTML = "Time spent: " + time + " seconds";
+	document.getElementById('timer').innerHTML = "Tijd gespendeerd: " + time + " seconden";
 }
 
 var timeInterval = setInterval(timer, 1000);
@@ -58,6 +58,10 @@ function reset() {
 function changeSize(size) {
 	globalSize = size;
 	generateCards();
+}
+
+async function getTopFive(){
+	const res = await fetch('localhost:8000/api/scores');	
 }
 
 function changeScore(score) {

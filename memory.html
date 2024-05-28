@@ -11,31 +11,30 @@
 
 <body>
     <div class="container">
-
-        <p class="title">
-            Memory
-        </p>
-
-        <p class="subtitle">
-            Klik op de kaarten om ze om te draaien
-        </p>
-
-        <div class="variables">
-            <div id='timer'>
-                Time Spent: 0 seconds <br>
+        <header>
+            <p class="title">
+                Memory
+            </p>
+            <p class="subtitle">
+                Klik op de kaarten om ze om te draaien
+            </p>
+            <div class="variables">
+                <div id='timer'>
+                    Tijd gespendeerd: 0 seconden <br>
+                </div>
+                Tijd over: 60 seconden <br>
+                <div id="score">Score: 0 </div>
             </div>
-            Time Left: 60 seconds <br>
-            <div id="score">Score: 0 </div>
-        </div>
-
+            <form action="login.html">
+                <button>login</button>
+            </form>
+        </header>
         <br>
-
         <div class="memory" id="cardContainer">
             <script>
                 generateCards();
             </script>
         </div>
-
         <div class="leaderSettings">
             <div class="leaderboard">
                 Top 5:
@@ -46,20 +45,19 @@
                     <li>Player 4: 70</li>
                     <li>Player 5: 60</li>
             </div>
-
             <div class="settings">
                 <div class="dropdowns">
                     <!-- Dropdowns for image and the size of the board -->
                     <div class="dropdown">
-                        <label for="image">Image</label>
+                        <label for="image">Foto</label>
                         <select title="Image" onchange="switchBackground(this.value)">
-                            <option value="cats">Cats</option>
+                            <option value="cats">Katten</option>
                             <option selected value="images">Images</option>
                         </select>
                     </div>
 
                     <div class="dropdown">
-                        <label for="Size">Size</label>
+                        <label for="Size">Hoeveelheid</label>
                         <select id="sizeSelect" title="Size" onchange="changeSize(this.value)">
                             <option selected value="18">36</option>
                             <option value="15">30</option>
@@ -69,31 +67,26 @@
                         </select>
                     </div>
                 </div>
-
                 <div class="colorSelects">
-
                     <div class="colorSelect">
-                        <label for="color">Open Color</label>
+                        <label for="color">Open kleur</label>
                         <input type="color" id="openInput" name="colorCard" value="#21a5bc" onchange="changeOpen()">
                     </div>
-
                     <div class="colorSelect">
-                        <label for="color">Closed Color</label>
+                        <label for="color">Gesloten kleur</label>
                         <input type="color" id="closedInput" name="colorClosed" value="#bc5721"
                             onchange="changeClose()">
                     </div>
-
                     <div class="colorSelect">
-                        <label for="color">Matched Color</label>
+                        <label for="color">Gevonden kleur</label>
                         <input type="color" id="matchedInput" name="colorBackground" value="#33bc21"
                             onchange="changeMatch()">
                     </div>
-
                 </div>
             </div>
         </div>
         <div class="buttons">
-            <button class="reset" onclick="generateCards()">Reset</button>
+            <button class="reset" onclick="generateCards()">Opnieuw</button>
         </div>
     </div>
 </body>
