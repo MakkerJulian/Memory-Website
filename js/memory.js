@@ -44,6 +44,10 @@ async function switchBackground(bg) {
 	generateCards();
 }
 
+function logout(){
+	localStorage.removeItem('memoryToken');
+}
+
 async function generateCards() {
 	reset();
 

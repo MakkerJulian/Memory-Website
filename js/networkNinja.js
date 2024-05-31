@@ -6,6 +6,12 @@
 
         // request interceptor starts
         const token = localStorage.getItem('memoryToken');
+
+        if(!token && !input.endsWith("login_check") && !input.endsWith("register")) {
+            localStorage.removeItem('memoryToken');
+            document.location.href = '/login.html';
+            return Promise.reject('Token has expired');
+        }
         if (token && input.startsWith('http://localhost:')) {
             const exp = parseJwt(token).exp;
             if (Date.now() >= exp * 1000) {
@@ -15,7 +21,6 @@
             }
             init.headers['Authorization'] = `Bearer ${token}`;
         }
-
         // request interceptor ends
 
         return originalFetch(input, init);
@@ -23,8 +28,11 @@
 
 })();
 
-function registerUser(username, email, password) {
-    fetch('http://localhost:8000/register', {
+async function registerUser() {
+    username = document.getElementById('username').value;
+    email = document.getElementById('email').value;
+    password = document.getElementById('password').value;
+    var res = await fetch('http://localhost:8000/register', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
@@ -35,9 +43,9 @@ function registerUser(username, email, password) {
             password: password
         }),
     })
-        .then(response => response.json())
-        .then(data => console.log(data))
-        .catch((error) => console.error('Error:', error));
+    if(res.status === 201) {
+        loginUser();
+    }
 }
 
 async function loginUser() {
