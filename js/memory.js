@@ -22,10 +22,6 @@ function changeSize(size) {
 	generateCards();
 }
 
-async function getTopFive(){
-	const res = await fetch('localhost:8000/api/scores');	
-}
-
 function changeScore(score) {
 	document.getElementById('score').innerHTML = "Score: " + score;
 }
@@ -106,3 +102,19 @@ function congratulateAndReset() {
 	alert("Congratulations! You have won! in " + time + " seconds");
 	generateCards(globalSize);
 }
+
+(function (window, document, undefined) {
+	window.onload = init;
+
+	function init(){
+		const leaderBoard = document.getElementById('leaderboard');
+		getScores().then(scores => {
+			scores = scores.sort((a, b) => b.score - a.score);
+			scores.forEach(score => {
+				const li = document.createElement('li');
+				li.innerHTML = score.username + ' - ' + score.score;
+				leaderBoard.appendChild(li);
+			});
+		});
+	}
+})(window, document, undefined);
