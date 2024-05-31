@@ -45,7 +45,7 @@ button {
 }
 
 .card {
-    border-radius: 5%;
+    border-radius: 10%;
     display: flex;
     justify-content: center;
     align-items: center;
@@ -128,7 +128,6 @@ header, footer {
     z-index: 0;
     position: relative;
 }
-
 
 .memory {
     display: grid;
