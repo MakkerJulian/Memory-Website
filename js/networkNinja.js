@@ -7,8 +7,15 @@
         // request interceptor starts
         const token = localStorage.getItem('memoryToken');
         if (token && input.startsWith('http://localhost:')) {
+            const exp = parseJwt(token).exp;
+            if (Date.now() >= exp * 1000) {
+                localStorage.removeItem('memoryToken');
+                document.location.href = '/login.html';
+                return Promise.reject('Token has expired');
+            }
             init.headers['Authorization'] = `Bearer ${token}`;
         }
+
         // request interceptor ends
 
         return originalFetch(input, init);
@@ -80,25 +87,25 @@ async function saveGame(id, score, api, colorFound, colorClosed) {
     })
 }
 
-async function getPlayers(){
+async function getPlayers() {
     const res = await fetch('http://localhost:8000/api/admin/players');
     const response = await res.json();
     return response;
 }
 
-async function getScores(){
+async function getScores() {
     const res = await fetch('http://localhost:8000/scores');
     const response = await res.json();
     return response;
 }
 
-async function getPreferences(id){
+async function getPreferences(id) {
     const res = await fetch(`http://localhost:8000/api/player/${id}/preferences`);
     const response = await res.json();
     return response;
 }
 
-async function savePreferences(id, preferences){
+async function savePreferences(id, preferences) {
     const res = await fetch(`http://localhost:8000/api/player/${id}/preferences`, {
         method: 'POST',
         headers: {
@@ -115,7 +122,7 @@ async function savePreferences(id, preferences){
     return response;
 }
 
-async function changeMail(id,mail){
+async function changeMail(id, mail) {
     const res = await fetch(`http://localhost:8000/api/player/${id}/email`, {
         method: 'POST',
         headers: {
@@ -128,6 +135,17 @@ async function changeMail(id,mail){
     })
     const response = await res.json();
     return response;
+}
+
+
+function parseJwt(token) {
+    var base64Url = token.split('.')[1];
+    var base64 = base64Url.replace(/-/g, '+').replace(/_/g, '/');
+    var jsonPayload = decodeURIComponent(window.atob(base64).split('').map(function (c) {
+        return '%' + ('00' + c.charCodeAt(0).toString(16)).slice(-2);
+    }).join(''));
+
+    return JSON.parse(jsonPayload);
 }
 
 
