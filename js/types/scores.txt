@@ -1,0 +1,6 @@
+[
+    {
+        "username": "Henk",
+        "score": 15
+    }
+]

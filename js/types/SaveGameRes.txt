@@ -1,0 +1,32 @@
+Save game:
+{
+    "id": 1,
+    "name": "Henk",
+    "email": "henk@henk",
+    "games": [
+        {
+            "date": {
+                "date": "2024-05-31 16:33:36.000000",
+                "timezone_type": 3,
+                "timezone": "UTC"
+            },
+            "day": "2024-05-31",
+            "score": 15,
+            "api": "",
+            "color_closed": "",
+            "color_found": ""
+        },
+        {
+            "date": {
+                "date": "2024-05-31 16:33:50.613370",
+                "timezone_type": 3,
+                "timezone": "UTC"
+            },
+            "day": "2024-05-31",
+            "score": 15,
+            "api": "dogs",
+            "color_closed": "blue",
+            "color_found": "red"
+        }
+    ]
+}

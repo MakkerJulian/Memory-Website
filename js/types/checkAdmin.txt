@@ -1,0 +1,18 @@
+[
+    {
+        "aantal_spellen": 2
+    },
+    {
+        "aantal_spelers": 1
+    },
+    [
+        {
+            "api": "",
+            "aantal": 1
+        },
+        {
+            "api": "dogs",
+            "aantal": 1
+        }
+    ]
+]
