@@ -126,8 +126,6 @@ async function savePreferences(id, preferences) {
             color_closed: preferences.color_closed
         }),
     })
-    const response = await res.json();
-    return response;
 }
 
 async function changeMail(id, mail) {
