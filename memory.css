@@ -1,6 +1,4 @@
 :root {
-    --colorOpen: #21a5bc;
-    --colorClosed: #bc5721;
     --colorMatch: #33bc21;
 }
 body {
@@ -59,7 +57,7 @@ button {
     border-style: solid; 
 }
 
-header {
+header, footer {
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -102,19 +100,11 @@ header {
     text-align: center;
     display: flex;
     align-items: center;
+    color: rgb(218, 218, 218);
 }
 
 .card:active {
     filter: brightness(1.1);
-}
-
-.open {
-    background-color: var(--colorOpen);
-}
-
-
-.close {
-    background-color: var(--colorClosed);
 }
 
 /* make a gren filter */
@@ -135,7 +125,6 @@ header {
 }
 
 .match img {
-    /* filter: grayscale(100%) sepia(100%) hue-rotate(90deg); */
     z-index: 0;
     position: relative;
 }

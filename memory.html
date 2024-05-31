@@ -9,7 +9,6 @@
     <script src="./js/networkNinja.js"></script>
     <script src="./js/cats.js"></script>
     <script src="./js/stockimages.js"></script>
-    <script src="./js/cardChange.js"></script>
     <script src="./js/timer.js"></script>
     <script src="./js/memory.js"></script>
 </head>
@@ -31,7 +30,7 @@
                 <div id="score">Score: 0 </div>
             </div>
             <form action="login.html">
-                <button onclick="logout()">Logout</button>
+                <button onclick="logout()">Uitloggen</button>
             </form>
         </header>
         <br>
@@ -40,24 +39,15 @@
                 generateCards();
             </script>
         </div>
-        <div class="leaderSettings">
-            <div class="leaderboard">
-                Top 5:
-                <ul id = "leaderboard">
+        <footer>
+            <div class="leaderSettings">
+                <div class="leaderboard">
+                    Top 5:
+                    <ul id="leaderboard">
 
-                </ul>
-            </div>
-            <div class="settings">
-                <div class="dropdowns">
-                    <!-- Dropdowns for image and the size of the board -->
-                    <div class="dropdown">
-                        <label for="image">Foto</label>
-                        <select title="Image" onchange="switchBackground(this.value)">
-                            <option value="cats">Katten</option>
-                            <option selected value="images">Images</option>
-                        </select>
-                    </div>
-
+                    </ul>
+                </div>
+                <div class="settings">
                     <div class="dropdown">
                         <label for="Size">Hoeveelheid</label>
                         <select id="sizeSelect" title="Size" onchange="changeSize(this.value)">
@@ -69,27 +59,12 @@
                         </select>
                     </div>
                 </div>
-                <div class="colorSelects">
-                    <div class="colorSelect">
-                        <label for="color">Open kleur</label>
-                        <input type="color" id="openInput" name="colorCard" value="#21a5bc" onchange="changeOpen()">
-                    </div>
-                    <div class="colorSelect">
-                        <label for="color">Gesloten kleur</label>
-                        <input type="color" id="closedInput" name="colorClosed" value="#bc5721"
-                            onchange="changeClose()">
-                    </div>
-                    <div class="colorSelect">
-                        <label for="color">Gevonden kleur</label>
-                        <input type="color" id="matchedInput" name="colorBackground" value="#33bc21"
-                            onchange="changeMatch()">
-                    </div>
-                </div>
             </div>
-        </div>
-        <div class="buttons">
-            <button class="reset" onclick="generateCards()">Opnieuw</button>
-        </div>
+            <div class="buttons">
+                <button class="reset" onclick="generateCards()">Opnieuw</button>
+                <button type="button" onclick="window.location.href='voorkeuren.html'">Voorkeuren</button>
+            </div>
+        </footer>
     </div>
 </body>
 

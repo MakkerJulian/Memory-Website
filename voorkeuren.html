@@ -1,0 +1,51 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link href="voorkeuren.css" rel="stylesheet">
+    <script src="./js/cats.js"></script>
+    <script src="./js/stockimages.js"></script>
+    <script src="./js/memory.js"></script>
+    <script src="./js/networkNinja.js"></script>
+</head>
+
+<body>
+    <div class="container">
+        <div class="data">
+            <h1 class="title">Voorkeuren</h1>
+            <div class="settings">
+                <div class="dropdowns">
+                    <!-- Dropdowns for image and the size of the board -->
+                    <div class="dropdown">
+                        <label for="image">Foto</label>
+                        <select title="Image" id="api" class="api">
+                            <option value="cats">Katten</option>
+                            <option selected value="images">Laptops en landschappen</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="colorSelects">
+                    <div class="colorSelect">
+                        <label for="colorClosed">Gesloten kleur</label>
+                        <input type="color" id="closedInput" name="colorClosed">
+                    </div>
+                    <div class="colorSelect">
+                        <label for="color">Gevonden kleur</label>
+                        <input type="color" id="matchedInput" name="colorBackground">
+                    </div>
+                </div>
+                <div class="email">
+                    <label for="email"> Email adress</label>
+                    <input type="email" name="email" id="email">
+                </div>
+            </div>
+            <button type="button" onclick="savePrefs()">opslaan en terug</button>
+        </div>
+    </div>
+    <script src="./js/preferencesChange.js"></script>
+</body>
+
+</html>
