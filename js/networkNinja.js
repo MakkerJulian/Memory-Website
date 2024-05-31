@@ -7,7 +7,7 @@
         // request interceptor starts
         const token = localStorage.getItem('memoryToken');
 
-        if(!token && !input.endsWith("login_check") && !input.endsWith("register")) {
+        if (!token && !input.endsWith("login_check") && !input.endsWith("register")) {
             localStorage.removeItem('memoryToken');
             document.location.href = '/login.html';
             return Promise.reject('Token has expired');
@@ -43,7 +43,7 @@ async function registerUser() {
             password: password
         }),
     })
-    if(res.status === 201) {
+    if (res.status === 201) {
         loginUser();
     }
 }
@@ -126,21 +126,21 @@ async function savePreferences(id, preferences) {
             color_closed: preferences.color_closed
         }),
     })
+    return res;
 }
 
 async function changeMail(id, mail) {
     const res = await fetch(`http://localhost:8000/api/player/${id}/email`, {
-        method: 'POST',
+        method: 'PUT',
         headers: {
             'Content-Type': 'application/json'
         },
         body: JSON.stringify({
             id: id,
-            mail: mail
+            email: mail
         }),
     })
-    const response = await res.json();
-    return response;
+    return res;
 }
 
 

@@ -50,6 +50,8 @@ function logout() {
 
 async function generateCards() {
 	reset();
+	var preferences = await getPreferences(getCurrentUserId());
+	document.documentElement.style.setProperty('--colorMatch', preferences.color_found)
 
 	var cardContainer = document.getElementById("cardContainer");
 
@@ -59,9 +61,11 @@ async function generateCards() {
 	for (let i = 1; i < (globalSize * 2) + 1; i++) {
 		var card = document.createElement("button");
 		card.className = "card close";
+		card.get
 		card.innerHTML
 		card.id = "card" + i;
 		card.value = backgrounds[i - 1];
+		card.style.backgroundColor = preferences.color_closed;
 		card.onclick = () => changeToOpen(i);
 		cardContainer.appendChild(card);
 	}
@@ -69,7 +73,7 @@ async function generateCards() {
 
 function changeToOpen(cardId) {
 	var card = document.getElementById("card" + cardId);
-
+	
 	if (card.className === "card match" || savedCard === cardId) return;
 
 	card.className = "card open";
