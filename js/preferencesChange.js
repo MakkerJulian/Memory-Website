@@ -25,10 +25,13 @@ function setEmail(userId, email) {
 }
 
 async function setInitialValues() {
-    var preferences = await getPreferences(getCurrentUserId());
+    const userId = getCurrentUserId();
+    const preferences = await getPreferences(userId);
+    const mail  = await getMail(userId)
     document.querySelector('select[title="Image"]').value = preferences.preferred_api;
     document.getElementById('closedInput').value = preferences.color_closed;
     document.getElementById('matchedInput').value = preferences.color_found;
+    document.getElementById('email').value  = mail
 }
 
 // Call setInitialValues when the window loads

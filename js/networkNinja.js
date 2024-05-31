@@ -129,6 +129,17 @@ async function savePreferences(id, preferences) {
     return res;
 }
 
+async function getMail(id) {
+    const res = await fetch(`http://localhost:8000/api/player/${id}/email`, {
+        method: 'GET',
+        headers: {
+            'Content-Type': 'application/json'
+        }
+    })
+    response = await res.json();
+    return response
+}
+
 async function changeMail(id, mail) {
     const res = await fetch(`http://localhost:8000/api/player/${id}/email`, {
         method: 'PUT',
