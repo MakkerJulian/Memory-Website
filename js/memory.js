@@ -44,7 +44,7 @@ async function switchBackground(bg) {
 	generateCards();
 }
 
-function logout(){
+function logout() {
 	localStorage.removeItem('memoryToken');
 }
 
@@ -104,13 +104,17 @@ function changeToOpen(cardId) {
 
 function congratulateAndReset() {
 	alert("Congratulations! You have won! in " + time + " seconds");
+	const userId = getCurrentUserId();
+	getPreferences(userId).then(preferences => {
+		saveGame(userId, time, preferences.api, preferences.color_found, preferences.color_closed);
+	});
 	generateCards(globalSize);
 }
 
 (function (window, document, undefined) {
 	window.onload = init;
 
-	function init(){
+	function init() {
 		const leaderBoard = document.getElementById('leaderboard');
 		getScores().then(scores => {
 			scores = scores.sort((a, b) => b.score - a.score);

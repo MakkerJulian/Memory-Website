@@ -80,7 +80,7 @@ async function checkAdmin() {
 }
 
 async function saveGame(id, score, api, colorFound, colorClosed) {
-    await fetch('http://localhost:8000/api/scores', {
+    await fetch('http://localhost:8000/game/save', {
         method: 'POST',
         headers: {
             'Content-Type': 'application/json'
