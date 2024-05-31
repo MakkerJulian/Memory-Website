@@ -14,33 +14,35 @@
 
 <body>
     <div class="container">
-        <h1 class="title">Voorkeuren</h1>
-        <button type="button" onclick="savePrefs()">opslaan en terug</button>
-        <div class="settings">
-            <div class="dropdowns">
-                <!-- Dropdowns for image and the size of the board -->
-                <div class="dropdown">
-                    <label for="image">Foto</label>
-                    <select title="Image" id="api">
-                        <option value="cats">Katten</option>
-                        <option selected value="images">Images</option>
-                    </select>
+        <div class="data">
+            <h1 class="title">Voorkeuren</h1>
+            <div class="settings">
+                <div class="dropdowns">
+                    <!-- Dropdowns for image and the size of the board -->
+                    <div class="dropdown">
+                        <label for="image">Foto</label>
+                        <select title="Image" id="api" class="api">
+                            <option value="cats">Katten</option>
+                            <option selected value="images">Laptops en landschappen</option>
+                        </select>
+                    </div>
+                </div>
+                <div class="colorSelects">
+                    <div class="colorSelect">
+                        <label for="colorClosed">Gesloten kleur</label>
+                        <input type="color" id="closedInput" name="colorClosed">
+                    </div>
+                    <div class="colorSelect">
+                        <label for="color">Gevonden kleur</label>
+                        <input type="color" id="matchedInput" name="colorBackground">
+                    </div>
+                </div>
+                <div class="email">
+                    <label for="email"> Email adress</label>
+                    <input type="email" name="email" id="email">
                 </div>
             </div>
-            <div class="colorSelects">
-                <div class="colorSelect">
-                    <label for="color">Gesloten kleur</label>
-                    <input type="color" id="closedInput" name="colorClosed">
-                </div>
-                <div class="colorSelect">
-                    <label for="color">Gevonden kleur</label>
-                    <input type="color" id="matchedInput" name="colorBackground">
-                </div>
-            </div>
-            <div class="email">
-                <label for="email"> Email adress</label>
-                <input type="email" name="email" id="email">
-            </div>
+            <button type="button" onclick="savePrefs()">opslaan en terug</button>
         </div>
     </div>
     <script src="./js/preferencesChange.js"></script>
