@@ -8,44 +8,6 @@ var time = 0;
 var getCardBackground = generateRandomImages;
 var getBgImageUrl = getImageBgUrl;
 
-function timer() {
-	time++;
-	document.getElementById('timer').innerHTML = "Tijd gespendeerd: " + time + " seconden";
-}
-
-var timeInterval = setInterval(timer, 1000);
-
-
-function changeOpen() {
-	var openInput = document.getElementById("openInput");
-	var openCards = document.getElementsByClassName("open");
-
-	for (var i = 0; i < openCards.length; i++) {
-		openCards[i].style.backgroundColor = openInput.value;
-	}
-	document.documentElement.style.setProperty('--colorOpen', openInput.value)
-}
-
-function changeMatch() {
-	var matchInput = document.getElementById("matchedInput");
-	var matchCards = document.getElementsByClassName("match");
-
-	for (var i = 0; i < matchCards.length; i++) {
-		matchCards[i].style.backgroundColor = matchInput.value;
-	}
-	document.documentElement.style.setProperty('--colorMatch', matchInput.value);
-}
-
-function changeClose() {
-	var closeInput = document.getElementById("closedInput");
-	var closeCards = document.getElementsByClassName("close");
-
-	for (var i = 0; i < closeCards.length; i++) {
-		closeCards[i].style.backgroundColor = closeInput.value;
-	}
-	document.documentElement.style.setProperty('--colorClose', closeInput.value)
-}
-
 function reset() {
 	matched = 0;
 	time = 0;
@@ -68,24 +30,6 @@ function changeScore(score) {
 	document.getElementById('score').innerHTML = "Score: " + score;
 }
 
-
-function getImageBgUrl(cardId) {
-	return "url(https://picsum.photos/id/" + cardId + "/200)";
-}
-
-function generateRandomImages() {
-	var images = [];
-	return fetch('https://picsum.photos/v2/list?limit=' + globalSize)
-		.then(response => response.json())
-		.then(jsonImages => {
-			jsonImages.forEach(image => {
-				images.push(image.id);
-				images.push(image.id);
-			});
-			images.sort(() => Math.random() - 0.5);
-			return images;
-		});
-}
 async function switchBackground(bg) {
 	switch (bg) {
 		case "images":
@@ -102,25 +46,6 @@ async function switchBackground(bg) {
 			break;
 	}
 	generateCards();
-}
-
-async function generateCats() {
-	var cats = [];
-	return fetch('https://cataas.com/api/cats?limit=' + globalSize)
-		.then(response => response.json())
-		.then(jsonCats => {
-			jsonCats.forEach(cat => {
-				cats.push(cat._id);
-				cats.push(cat._id);
-			});
-			cats.sort(() => Math.random() - 0.5);
-			return cats;
-		}
-		);
-}
-
-function getCatBgUrl(cardId) {
-	return "url(https://cataas.com/cat/" + cardId + ")";
 }
 
 async function generateCards() {
