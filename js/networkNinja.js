@@ -149,5 +149,12 @@ function parseJwt(token) {
 }
 
 
+function getCurrentUserId() {
+    const token = localStorage.getItem('memoryToken');
+    if (token) {
+        return parseJwt(token).sub;
+    }
+    return null;
+}
 
 
