@@ -19,15 +19,17 @@ function reset() {
 
 function changeSize(size) {
 	globalSize = size;
-	generateCards();
+	startGame();
 }
 
 function changeScore(score) {
 	document.getElementById('score').innerHTML = "Score: " + score;
 }
 
-async function switchBackground(bg) {
-	switch (bg) {
+async function startGame() {
+	var preferences = await getPreferences(getCurrentUserId());
+	console.log(preferences.preferred_api + "prefered api")
+	switch (preferences.preferred_api) {
 		case "images":
 			getCardBackground = generateRandomImages;
 			getBgImageUrl = getImageBgUrl;
@@ -41,16 +43,15 @@ async function switchBackground(bg) {
 			getBgImageUrl = getImageBgUrl;
 			break;
 	}
-	generateCards();
+	generateCards(preferences);
 }
 
 function logout() {
 	localStorage.removeItem('memoryToken');
 }
 
-async function generateCards() {
+async function generateCards(preferences) {
 	reset();
-	var preferences = await getPreferences(getCurrentUserId());
 	document.documentElement.style.setProperty('--colorMatch', preferences.color_found)
 
 	var cardContainer = document.getElementById("cardContainer");
@@ -112,7 +113,7 @@ function congratulateAndReset() {
 	getPreferences(userId).then(preferences => {
 		saveGame(userId, time, preferences.api, preferences.color_found, preferences.color_closed);
 	});
-	generateCards(globalSize);
+	startGame();
 }
 
 (function (window, document, undefined) {
