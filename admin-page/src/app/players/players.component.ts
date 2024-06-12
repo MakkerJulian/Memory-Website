@@ -16,7 +16,6 @@ export class PlayersComponent implements OnInit {
   players: Player[] = [];
 
   async ngOnInit() {
-    this.players.push({ username: 'test', email: 'test' })
     const playersObservable = await this.adminService.getPlayers();
     playersObservable.subscribe(players => {
       this.players = players;
