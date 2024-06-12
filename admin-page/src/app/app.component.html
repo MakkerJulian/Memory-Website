@@ -1,5 +1,19 @@
 <main class="main">
-  <app-hello-component></app-hello-component>
+  Spellen gespeeld :5
+  Accounts:
+  Bob,
+  Alice,
+  John
+  Favoriete API : cats
 </main>
 
-<router-outlet />
+<div class="container" *ngIf="valid(); else error">
+  <router-outlet />
+</div>
+
+<ng-template #error>
+  <div class="error">
+    <h1>404</h1>
+    <p>Page not found</p>
+  </div>
+</ng-template>

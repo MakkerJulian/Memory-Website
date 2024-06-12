@@ -1,12 +1,3 @@
-De symfony backend geeft ook geaggregeerde data terug. 
-Het idee hiervan is:
-!! dat een administrator (ROLE_ADMIN) van deze endpoints gebruik kan maken om te zien hoeveel spellen er gespeeld zijn, 
-!! wie zich heeft aangemeld (voor irritante direct-marketing-doeleinden bijvoorbeeld)  
-!! welke API's populair zijn. 
-
-Maak gebruik van Angular om met behulp van de backend van de memory-game deze geaggregeerde data op te halen en in een fraaie visualisatie te tonen. 
-Bekijk welke geaggregeerde data de backend teruggeeft om een idee te krijgen van de mogelijkheden en als je een spannende toevoeging ziet.
-
 Voor de angular-applicatie gelden voor de code dezelfde regels als voor het memory-spel zelf, dus:
 !! gebruikersvriendelijkheid, 
 !! responsiveness 
@@ -16,10 +7,18 @@ Je mag zelf de visualisatie bedenken, of gebruik maken van de standaarden die in
 
 Zorg er voor dat de volgende niet-functionele requirements in je applicatie verwerkt zitten:
 
-!! (Herhalende) functionaliteiten/onderdelen zijn op een logische manier gescheiden in verschillende components.
 !! Er worden services gebruikt voor het afhandelen van de API requests, JWT logica, en eventueel functionaliteiten en data die gedeeld worden door meerdere components.
-!! Indien daar een goede reden voor is mogen NgModules gebruikt worden, maar dit is niet noodzakelijk.
-!! Het Angular project gebruikt Typescript als taal, dus geen JavaScript.
+
 !! Het delen van data tussen componenten d.m.v. @Input(), @Output(), property binding en event binding komt voor in de applicatie.
+
 !! Directives *ngIf en *ngFor komen beiden voor in de applicatie.
+// Uitleg van internet:
+nGfor en nGIf zijn directives van angular waarmee je logica kan shrijven in de html:
+voorbeeld:
+<ul>
+  <li *ngFor="let item of friendslist">
+	The name and age is here
+  </li>
+</ul>
+
 !! Tot slot is het MVC gedachtegoed aanwezig in de opbouw van de applicatie en worden de principes uit de Angular Style Guide toegepast.
