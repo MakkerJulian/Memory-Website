@@ -1,8 +1,18 @@
-<h1>
-    Players:
-</h1>
-<ul>
-    <li *ngFor="let player of players">
-        {{ player.username }}
-    </li>
-</ul>
+<div class="container">
+    <div class="Pcontainer">
+        <header>
+            <h1 class = 'title'>Players:</h1>
+            <input type="text" class="inputField" placeholder="Search players..." [(ngModel)]="searchText">
+        </header>
+
+        <div class="players-grid">
+            <div class="player-card" *ngFor="let player of filterPlayers">
+                <img class="player-avatar" src="../assets/dm3.jpeg" alt="Player Avatar">
+                <h2 class="player-name">{{ player.username }}</h2>
+                <button class="details-button" mat-stroked-button (click)="openSnackBar('NO', 'okay then...')">View details</button>
+            </div>
+        </div>
+
+        <button class="details-button" (click)="goHome()">Back</button>
+    </div>
+</div>
