@@ -29,7 +29,7 @@ header input {
 
 .players-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+    grid-template-columns: repeat(auto-fill, minmax(10vw, 1fr));
     gap: 1rem;
     margin-bottom: 2rem;
 }
@@ -40,12 +40,14 @@ header input {
     align-items: center;
     padding: 1rem;
     border: 1px solid #ccc;
+    background-color: wheat;
+    color:  black;
     border-radius: 0.5rem;
 }
 
 .player-avatar {
-    width: 100px;
-    height: 100px;
+    width: 100%;
+    height: 100%;
     margin-bottom: 1rem;
 }
 
