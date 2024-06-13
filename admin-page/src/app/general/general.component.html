@@ -1,0 +1,18 @@
+<div class="container">
+    <div class="Pcontainer">
+        <header>
+            <h1 class = 'title'>General</h1>
+        </header>
+
+        <h2>Total games Played : {{ games.length }} </h2>
+
+        <div class="games-grid">
+            <div class="game-card" *ngFor="let game of games">
+                <h2 class="player-name">Score : {{ game.score }}</h2>
+                <button class="details-button" mat-stroked-button (click)="openSnackBar(game,'Close')">View details</button>
+            </div>
+        </div>
+
+        <button class="details-button" (click)="goHome()">Back</button>
+    </div>
+</div>
