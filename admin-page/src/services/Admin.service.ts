@@ -12,7 +12,7 @@ export class AdminService {
         return this.http.get<AdminAggregateResult>('api/admin/aggregate');
     }
 
-    async getPlayers() {
+    getPlayers() {
         return this.http.get<Player[]>('http://localhost:8000/api/admin/players');
     }
 

@@ -5,7 +5,7 @@ import { HttpClient } from "@angular/common/http";
 @Injectable({ providedIn: 'root' })
 export class DefaultService {
     constructor(private http: HttpClient) { }
-    async getScores() {
+    getScores() {
         return this.http.get<Score[]>('http://localhost:8000/scores')
     }
 }

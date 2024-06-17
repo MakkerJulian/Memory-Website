@@ -1,10 +1,12 @@
 import { NgFor } from '@angular/common';
 import { Component, OnInit } from '@angular/core';
-import { Player } from '../../types/playerType';
+import { PlayerWithScore } from '../../types/playerType';
 import { AdminService } from '../../services/Admin.service';
 import { FormsModule } from '@angular/forms';
 import { MatSnackBar } from '@angular/material/snack-bar';
 import { Router } from '@angular/router';
+import { DefaultService } from '../../services/Default.service';
+import { Score } from '../../types/scoreType';
 
 @Component({
   selector: 'app-players',
@@ -16,18 +18,32 @@ import { Router } from '@angular/router';
 export class PlayersComponent implements OnInit {
   constructor(
     private adminService: AdminService,
+    private defaultService: DefaultService,
     private _snackBar: MatSnackBar,
     private router: Router
   ) {}
-  players: Player[] = [];
-  filterPlayers: Player[] = [];
+  players: PlayerWithScore[] = [];
+  filterPlayers: PlayerWithScore[] = [];
+  scores: Score[] = [];
 
   async ngOnInit() {
-    const playersObservable = await this.adminService.getPlayers();
-    playersObservable.subscribe(players => {
-      this.players = players;
-      this.filterPlayers = players;
+    this.defaultService.getScores().subscribe(scores => {
+      this.scores = scores;
     });
+    this.adminService.getPlayers().subscribe(players => {
+      const playersWithScore = players.map(player => {
+        const score = this.scores.find(score => score.username === player.username);
+        return {
+          ...player,
+          score: score ? score.score : 0
+        };
+      });
+      this.players = playersWithScore;
+      this.filterPlayers = playersWithScore;
+    });
+
+
+
   }
 
   set searchText(value: string) {

@@ -12,6 +12,10 @@ export type FullPlayer = {
     games: FullGame[];
 }
 
+export type PlayerWithScore = Player & {
+    score: number;
+}
+
 export type Preferences = {
     preffered_api: string;
     color_closed: string;

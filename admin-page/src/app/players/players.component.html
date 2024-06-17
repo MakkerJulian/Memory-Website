@@ -9,6 +9,7 @@
             <div class="player-card" *ngFor="let player of filterPlayers">
                 <img class="player-avatar" src="../assets/dm3.jpeg" alt="Player Avatar">
                 <h2 class="player-name">{{ player.username }}</h2>
+                <h3>Highscore: {{player.score}}</h3>
                 <button class="details-button" mat-stroked-button (click)="openSnackBar('NO', 'okay then...')">View details</button>
             </div>
         </div>
