@@ -21,12 +21,7 @@ export class AppComponent {
   valid() {
     if(typeof window === 'undefined') return false;
     if(!this.jwtService.checkJTW()) {
-      this.http.post<JTWResponse>('http://localhost:8000/api/login_check', {
-        username: 'Henk',
-        password: 'henk'
-      }).subscribe((data) => {
-        localStorage.setItem('memoryToken', data.token);
-      });
+      window.location.href = './login';
     }
     return true;
   }
