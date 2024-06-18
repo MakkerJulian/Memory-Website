@@ -8,10 +8,22 @@
     .inputField{
         width: 30vw;
     }
+    .player-card{
+        width: 30vw;
+    }
+    .players-grid{
+        grid-template-columns: repeat(2, 1fr);
+    }
 }
 @media screen and (min-width: 769px) {
     .inputField{
         width: 20vw;
+    }
+    .player-card{
+        width: 10vw;
+    }
+    .players-grid{
+        grid-template-columns: repeat(5, 1fr);
     }
 }
 
@@ -29,7 +41,6 @@ header input {
 
 .players-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fill, minmax(10vw, 1fr));
     gap: 1rem;
     margin-bottom: 2rem;
 }
