@@ -20,6 +20,7 @@ export class AppComponent {
 
   valid() {
     if(typeof window === 'undefined') return false;
+    if(window.location.href.includes('login')) return true;
     if(!this.jwtService.checkJTW()) {
       window.location.href = './login';
     }
