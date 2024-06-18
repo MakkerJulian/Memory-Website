@@ -5,6 +5,7 @@ body {
     background-image: url(nice.png);
     background-repeat: no-repeat;
     background-size: cover;
+    overflow: hidden;
 }
 button {
     border-radius: 5px;
@@ -12,6 +13,25 @@ button {
     border: transparent 0px;
     padding: 1vw;
     text-decoration: none;
+}
+
+@keyframes slidein {
+    from {
+      translate: 150vw 0;
+      scale: 200% 1;
+    }
+  
+    to {
+      translate: 0 0;
+      scale: 100% 1;
+    }
+  }
+
+.congrats{
+    background-color: greenyellow;
+    color: black;
+    animation-name: slidein;
+    animation-duration: 1s;
 }
 
 .title {

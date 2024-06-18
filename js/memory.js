@@ -28,7 +28,11 @@ function changeScore(score) {
 
 async function startGame() {
 	var preferences = await getPreferences(getCurrentUserId());
-	console.log(preferences.preferred_api + "prefered api")
+
+	const congrats = document.getElementsByClassName('congrats');
+	if(congrats.length > 0) {
+		congrats[0].remove();
+	}
 	switch (preferences.preferred_api) {
 		case "images":
 			getCardBackground = generateRandomImages;
@@ -108,12 +112,16 @@ function changeToOpen(cardId) {
 }
 
 function congratulateAndReset() {
-	alert("Congratulations! You have won! in " + time + " seconds");
 	const userId = getCurrentUserId();
 	getPreferences(userId).then(preferences => {
 		saveGame(userId, time, preferences.api, preferences.color_found, preferences.color_closed);
 	});
-	startGame();
+	const root = document.getElementsByClassName('container')[0];
+	const congrats = document.createElement('button');
+	congrats.className = 'congrats';
+	congrats.innerHTML = 'Gefeliciteerd! Je hebt het spel uitgespeeld in ' + time + ' seconden. Klik om opnieuw te spelen';
+	congrats.onclick = startGame;
+	root.appendChild(congrats);
 }
 
 (function (window, document, undefined) {
