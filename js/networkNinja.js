@@ -74,9 +74,7 @@ async function loginUser() {
 }
 
 async function checkAdmin() {
-    const res = await fetch('http://localhost:8000/api/admin/aggregate');
-    const response = await res.json();
-    return response;
+    return (await fetch('http://localhost:8000/api/admin/aggregate')).status === 200;
 }
 
 async function saveGame(id, score) {

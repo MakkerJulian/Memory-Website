@@ -30,7 +30,7 @@ async function startGame() {
 	var preferences = await getPreferences(getCurrentUserId());
 
 	const congrats = document.getElementsByClassName('congrats');
-	if(congrats.length > 0) {
+	if (congrats.length > 0) {
 		congrats[0].remove();
 	}
 	switch (preferences.preferred_api) {
@@ -78,7 +78,7 @@ async function generateCards(preferences) {
 
 function changeToOpen(cardId) {
 	var card = document.getElementById("card" + cardId);
-	
+
 	if (card.className === "card match" || savedCard === cardId) return;
 
 	card.className = "card open";
@@ -125,7 +125,7 @@ function congratulateAndReset() {
 (function (window, document, undefined) {
 	window.onload = init;
 
-	function init() {
+	async function init() {
 		const leaderBoard = document.getElementById('leaderboard');
 		getScores().then(scores => {
 			scores = scores.sort((a, b) => b.score - a.score);
@@ -135,5 +135,15 @@ function congratulateAndReset() {
 				leaderBoard.appendChild(li);
 			});
 		});
+		const isAdmin = await checkAdmin();
+		if (isAdmin) {
+			const buttons = document.getElementsByClassName('links')[0];
+			const button = document.createElement('a');
+			button.href = 'http://localhost:4200';
+			button.className = 'button-link';
+			button.id = 'admin button';
+			button.innerHTML = '<button type="button">Go to Adminpage</button>';
+			buttons.appendChild(button);
+		}
 	}
 })(window, document, undefined);
