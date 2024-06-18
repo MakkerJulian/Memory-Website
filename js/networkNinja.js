@@ -79,7 +79,8 @@ async function checkAdmin() {
     return response;
 }
 
-async function saveGame(id, score, api, colorFound, colorClosed) {
+async function saveGame(id, score) {
+    const preferences = await getPreferences(getCurrentUserId());
     await fetch('http://localhost:8000/game/save', {
         method: 'POST',
         headers: {
@@ -88,9 +89,9 @@ async function saveGame(id, score, api, colorFound, colorClosed) {
         body: JSON.stringify({
             id: id,
             score: score,
-            api: api,
-            'color_found': colorFound,
-            'color_closed': colorClosed
+            api: preferences.preferred_api === "" ? 'images' : preferences.preferred_api,
+            'color_found': preferences.color_found === ""? 'green' : preferences.color_found,
+            'color_closed': preferences.color_closed === ""? 'red' : preferences.color_closed
         }),
     })
 }
@@ -110,6 +111,9 @@ async function getScores() {
 async function getPreferences(id) {
     const res = await fetch(`http://localhost:8000/api/player/${id}/preferences`);
     const response = await res.json();
+    response.preferred_api = response.api === "" ? 'images' : response.preferred_api;
+    response.color_found = response.color_found === "" ? 'green' : response.color_found;
+    response.color_closed = response.color_closed === "" ? 'red' : response.color_closed;
     return response;
 }
 

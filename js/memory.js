@@ -113,9 +113,7 @@ function changeToOpen(cardId) {
 
 function congratulateAndReset() {
 	const userId = getCurrentUserId();
-	getPreferences(userId).then(preferences => {
-		saveGame(userId, time, preferences.api, preferences.color_found, preferences.color_closed);
-	});
+	saveGame(userId, time);
 	const root = document.getElementsByClassName('container')[0];
 	const congrats = document.createElement('button');
 	congrats.className = 'congrats';
