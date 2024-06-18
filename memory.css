@@ -26,6 +26,15 @@ button {
     text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
 }
 
+.links {
+    text-align: center;
+    display: inline-block;
+}
+
+.button-link {
+    display: inline-block;
+}
+
 .subtitle {
     font-family: 'Roboto', sans-serif;
     margin: 0;

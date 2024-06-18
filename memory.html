@@ -29,9 +29,14 @@
                 Tijd over: 60 seconden <br>
                 <div id="score">Score: 0 </div>
             </div>
-            <form action="login.html">
-                <button onclick="logout()">Uitloggen</button>
-            </form>
+            <div class="links">
+                <form action="login.html">
+                    <button onclick="logout()" class="button-link">Uitloggen</button>
+                </form>
+                <a href="http://localhost:4200" class="button-link">
+                    <button type="button">Go to Adminpage</button>
+                </a>
+            </div>
         </header>
         <br>
         <div class="memory" id="cardContainer">
