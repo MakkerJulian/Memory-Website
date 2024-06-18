@@ -1,5 +1,0 @@
-{
-    "preferred_api": "",
-    "color_closed": "",
-    "color_found": ""
-}
