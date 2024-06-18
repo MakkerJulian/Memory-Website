@@ -4,11 +4,12 @@ import { Router } from '@angular/router';
 import { GameService } from '../../services/Game.Service';
 import { FullGame, Game } from '../../types/gameType';
 import { MatSnackBar } from '@angular/material/snack-bar';
+import { GameCardComponent } from '../game-card/game-card.component';
 
 @Component({
   selector: 'app-general',
   standalone: true,
-  imports: [NgFor],
+  imports: [NgFor, GameCardComponent],
   templateUrl: './general.component.html',
   styleUrl: './general.component.css'
 })
@@ -47,5 +48,9 @@ export class GeneralComponent implements OnInit {
     the API used was ${game.api},  and with card settings: Closed: ${game.color_closed}, 
     Found: ${game.color_found}.`;
     this.snackbar.open(message, action);
+  }
+
+  handleGameDetails(game: FullGame) {
+    this.openSnackBar(game, 'Close');
   }
 }

@@ -10,8 +10,7 @@
 
         <div class="games-grid">
             <div class="game-card" *ngFor="let game of games">
-                <h2 class="player-name">Score : {{ game.score }}</h2>
-                <button class="details-button" mat-stroked-button (click)="openSnackBar(game,'Close')">View details</button>
+                <app-game-card [game]="game" (detailsClicked)="handleGameDetails($event)"></app-game-card>
             </div>
         </div>
 

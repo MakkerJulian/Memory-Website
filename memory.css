@@ -11,8 +11,9 @@ button {
     border-radius: 5px;
     background-color: #33bc21;
     border: transparent 0px;
-    padding: 1vw;
+    padding: 0.5vw;
     text-decoration: none;
+    margin-left: 3px;
 }
 
 @keyframes slidein {
@@ -48,7 +49,7 @@ button {
 
 .links {
     text-align: center;
-    display: inline-block;
+    display: flex;
 }
 
 .button-link {
